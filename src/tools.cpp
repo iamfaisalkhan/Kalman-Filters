@@ -51,7 +51,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
    // division by zero check
    float px_py_2 = pow(px, 2.0) + pow(py, 2.0);
 
-   if (px_py_2 == 0) {
+   if (fabs(px_py_2) < 0.001) {
      fprintf(stderr, "Division by zero\n");
      return Hj;
    }
